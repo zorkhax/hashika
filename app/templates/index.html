@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+	<h1>Hashtagify</h1>
+	<div>
+		<form name="hashtagifyForm" method="post">
+			<h2>Title</h2>
+			<textarea placeholder="title" rows="5" cols="95" name="title">{{ session.get('Hashtagify', {}).get('title', '') or default_title }}</textarea>
+			<h2>Content</h2>
+			<textarea placeholder="content" rows="30" cols="95" name="content">{{ session.get('Hashtagify', {}).get('content', '') or default_content }}</textarea><br>
+			<input type="submit" value="create">
+		</form>
+	</div>
+{% endblock %}

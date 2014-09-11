@@ -1,0 +1,10 @@
+#wrapper {
+	margin: 0 auto;
+	width: 700px;
+}
+#content {
+	width: 100%;
+}
+
+pre { overflow: auto; width; 300px; }
+

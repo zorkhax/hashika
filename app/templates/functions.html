@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+	<h1>Functions</h1>
+	<div>
+		<form name="stem_form" method="post">
+			stem(<input type="text" placeholder="token" name="token" value="{{session.get('token', '')}}">)
+			<input type="submit" value="launch">
+			{% if stem %}<br>output: {{stem}}{% endif %}
+		</form>
+		<br>
+		<form name="tokenize_sentence_form" method="post">
+			tokenize_sentence(<input type="text" placeholder="sentence" name="t_sentence" value="{{session.get('t_sentence', '')}}">)
+			<input type="submit" value="launch">
+			{% if tokenize_sentence %}<br>output: {{tokenize_sentence}}{% endif %}
+		</form>
+		<br>
+		<form name="add_sentence_to_index_form" method="post">
+			add_sentence_to_index(<input type="text" placeholder="sentence" name="sentence" value="{{session.get('sentence', '')}}">, 
+			<input type="text" placeholder="is_title=False" name="is_title" value="{{session.get('is_title', '')}}">)
+			<input type="submit" value="launch">
+			{% if add_sentence_to_index %}<br>output: {{add_sentence_to_index}}{% endif %}
+		</form>
+		<br>
+		<form name="build_index_form" method="post">
+			build_index(<input type="text" placeholder="text" name="text" value="{{session.get('text', '')}}">)
+			<input type="submit" value="launch">
+			{% if build_index %}<br>output: {{build_index}}{% endif %}
+		</form>
+		<br>
+		<form name="merge_words_form" method="post">
+			merge_words(<input type="text" placeholder="t1" name="t1" value="{{session.get('t1', '')}}">, 
+			<input type="text" placeholder="t2" name="t2" value="{{session.get('t2', '')}}">)
+			<input type="submit" value="launch">
+			{% if merge_words %}<br>output: {{merge_words}}{% endif %}
+		</form>
+		<br>
+		<form name="hashtagify_form" method="post">
+			hashtagify(<input type="text" placeholder="ratio" name="ratio" value="{{session.get('ratio', '')}}">)
+			<input type="submit" value="launch">
+			{% if hashtagify %}<br>output: {{hashtagify}}{% endif %}
+		</form>
+	</div>
+	<br>
+	<div>
+		{% if session.get('Hashtagify') %}
+			<h1>Title</h1>
+				<textarea placeholder="title" readonly="" rows="5" cols="95">{{ session.get('Hashtagify', {}).get('title', '') }}</textarea>
+			<h1>Content</h1>
+				<textarea placeholder="content" readonly="" rows="30" cols="95">{{ session.get('Hashtagify', {}).get('content', '') }}</textarea>
+		{% endif %}
+	</div>
+{% endblock %}
